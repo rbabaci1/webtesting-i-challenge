@@ -12,9 +12,6 @@ function succeed(item) {
 }
 
 function fail(item) {
-  // if item.enhancement < 15 ==> durability - 5
-  // if item.enhancement >= 15 ==> durability - 10
-  // if item.enhancement > 16 ==> enhancement - 1 , durability - 5
   item.enhancement < 15
     ? (item.durability -= 5)
     : item.enhancement > 16
