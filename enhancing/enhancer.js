@@ -1,17 +1,10 @@
-module.exports = {
-  succeed,
-  fail,
-  repair,
-  get,
-};
-
-function succeed(item) {
+const succeed = item => {
   item.enhancement !== 20 && (item.enhancement += 1);
 
   return item;
-}
+};
 
-function fail(item) {
+const fail = item => {
   item.enhancement < 15
     ? (item.durability -= 5)
     : item.enhancement > 16
@@ -19,12 +12,12 @@ function fail(item) {
     : (item.durability -= 10);
 
   return item;
-}
+};
 
-function repair(item) {
-  return { ...item, durability: 100 };
-}
+const repair = item => ({ ...item, durability: 100 });
 
 function get(item) {
   return { ...item };
 }
+
+module.exports = { succeed, fail, repair, get };
