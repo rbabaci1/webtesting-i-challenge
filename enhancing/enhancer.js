@@ -16,8 +16,12 @@ const fail = item => {
 
 const repair = item => ({ ...item, durability: 100 });
 
-function get(item) {
-  return { ...item };
-}
+const get = item => {
+  return item.enhancement === 0
+    ? item
+    : item.enhancement > 0
+    ? { ...item, name: `[+${item.enhancement}] ${item.name}` }
+    : null;
+};
 
 module.exports = { succeed, fail, repair, get };

@@ -1,4 +1,4 @@
-const { repair, succeed, fail } = require("./enhancer.js");
+const { repair, succeed, fail, get } = require("./enhancer.js");
 
 afterEach(() => {
   item1 = { name: "game-1", enhancement: 10, durability: 35 };
