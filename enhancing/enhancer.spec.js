@@ -1,6 +1,7 @@
-const { repair } = require("./enhancer.js");
+const { repair, succeed } = require("./enhancer.js");
 
-const item = { name: "game-1", enhancement: 10, durability: 35 };
+const item1 = { name: "game-1", enhancement: 10, durability: 35 };
+const item2 = { name: "game-2", enhancement: 20, durability: 35 };
 
 // test away!
 describe("enhancement functions", () => {
@@ -8,7 +9,17 @@ describe("enhancement functions", () => {
     it("restores the durability to 100", () => {
       const expected = { name: "game-1", enhancement: 10, durability: 100 };
 
-      expect(repair(item)).toMatchObject(expected);
+      expect(repair(item1)).toMatchObject(expected);
+    });
+  });
+
+  describe("success()", () => {
+    it("enhance the item on success", () => {
+      const expected1 = { name: "game-1", enhancement: 11, durability: 35 };
+      const expected2 = { name: "game-2", enhancement: 20, durability: 35 };
+
+      expect(succeed(item1)).toMatchObject(expected1);
+      expect(succeed(item2)).toMatchObject(expected2);
     });
   });
 });
